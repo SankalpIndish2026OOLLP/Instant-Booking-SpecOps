@@ -1,4 +1,4 @@
-Architecture last reviewed: 2026-11-17, no change; migrate-to-bun-sqlite archived and its specs synced into openspec/specs.
+Architecture last reviewed: 2026-11-18, no change; README.md added (overview, quick start, remaining work).
 
 # Project
 

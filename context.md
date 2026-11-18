@@ -2,7 +2,7 @@
 
 ## Current focus
 
-No change in progress. `migrate-to-bun-sqlite` is archived (specs synced). Next: `add-instant-booking`, once the business scope arrives (open item 1).
+No change in progress. `migrate-to-bun-sqlite` is archived (specs synced). README.md documents the project and the remaining work (2026-11-18). Next: `add-instant-booking`, once the business scope arrives (open item 1).
 
 ## Open items queue
 
@@ -11,7 +11,8 @@ Unanswered questions stay first and are asked one at a time.
 1. **Business scope for instant booking (blocker).** `scope.md` has no markets, user flow, rules or RQ items, so `add-instant-booking` cannot be specified. Needed from the business.
 2. **Product name** shown in the client shell. Until supplied, the UI strings module uses the placeholder "Untitled product".
 3. **Markets in scope** (locales, currencies, time zones, privacy laws). Needed before any user-facing data or formatting work.
-4. **Git repository.** The folder is not a git repo; Conventional Commits and the oasdiff "last document" baseline assume one.
+4. **Continuous integration.** The repository is on GitHub (SankalpIndish2026OOLLP/Instant-Booking-SpecOps) but has no CI pipeline; `bun run check`, `smoke:compose` and `test:e2e` run locally only.
+5. **Spec wording.** The `service-lifecycle` Purpose still mentions scaling; reword it in the next change that touches that spec.
 
 ## QA review: migrate-to-bun-sqlite (2026-11-17)
 

@@ -2,6 +2,14 @@
 
 Newest entry first. Past entries are never edited.
 
+## 2026-11-18: Add the project README
+
+- **Summary:** Wrote README.md (what is built, stack, quick start, commands, architecture, API, configuration, OpenSpec workflow, what remains, known limitations). Re-ran `bun run check`: all gates pass.
+- **RQ IDs:** none.
+- **Files:** `README.md`.
+- **Docs changed:** `history.md`, `project.md` (review line), `context.md` (open items: git repository resolved, CI and spec wording added).
+- **Reason:** User asked for a descriptive README pushed to GitHub and a log of what remains.
+
 ## 2026-11-17: Archive migrate-to-bun-sqlite
 
 - **Summary:** Synced the change's delta specs into `openspec/specs` (7 requirements modified, RQ-WEB-005 added, RQ-OPS-009 and RQ-WEB-003 removed) and moved the change to `openspec/changes/archive/2026-11-17-migrate-to-bun-sqlite`.
