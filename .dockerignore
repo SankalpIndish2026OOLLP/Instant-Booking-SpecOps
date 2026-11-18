@@ -1,0 +1,17 @@
+**/node_modules
+**/dist
+**/coverage
+**/*.tsbuildinfo
+**/*.test.ts
+**/*.test.tsx
+server/test
+client/test
+client/scripts
+.env
+.git
+.claude
+.agents
+openspec
+playwright-report
+test-results
+*.md

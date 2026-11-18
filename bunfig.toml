@@ -1,0 +1,3 @@
+[install]
+# Pin exact versions on `bun add` (config.yaml: pinned versions).
+exact = true

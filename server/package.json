@@ -1,0 +1,17 @@
+{
+  "name": "@app/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch src/main.ts",
+    "start": "bun src/main.ts",
+    "typecheck": "bun --bun tsc -p tsconfig.json",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage"
+  },
+  "dependencies": {
+    "@app/shared": "workspace:*",
+    "zod": "4.6.7"
+  }
+}

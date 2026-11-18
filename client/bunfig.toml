@@ -1,0 +1,6 @@
+[test]
+preload = ["./test/happydom.ts", "./test/setup.ts"]
+coverageThreshold = 0.7
+coverageSkipTestFiles = true
+# main.tsx is the composition root; the end-to-end tests exercise it.
+coveragePathIgnorePatterns = ["src/main.tsx", "test/**", "scripts/**"]

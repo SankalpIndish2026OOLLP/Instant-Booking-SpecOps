@@ -1,0 +1,39 @@
+# Base stack shared by dev (compose.override.yaml, merged automatically) and prod (compose.prod.yaml).
+# One Bun server serves the API and the client and owns the SQLite file (single instance: SQLite has one writer).
+name: app
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+      target: runtime
+    env_file: .env
+    environment:
+      PORT: "3000"
+      DATABASE_PATH: ${DATABASE_PATH:-/data/app.db}
+    volumes:
+      - db-data:/data
+    init: true
+    stop_grace_period: 15s
+    healthcheck:
+      test: ["CMD", "wget", "-qO", "/dev/null", "http://127.0.0.1:3000/api/v1/ready"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+
+  # End-to-end tests: docker compose -f compose.yaml -f compose.prod.yaml --profile e2e run --rm --build e2e
+  e2e:
+    profiles: ["e2e"]
+    build:
+      context: .
+      dockerfile: e2e/Dockerfile
+    environment:
+      BASE_URL: http://server:3000
+    depends_on:
+      server:
+        condition: service_healthy
+
+volumes:
+  db-data:

@@ -1,0 +1,8 @@
+# Prod mode: docker compose -f compose.yaml -f compose.prod.yaml up --build   ->   http://localhost:8080
+services:
+  # Separate image tags per mode, so switching modes never runs the other mode's last build.
+  server:
+    image: app-server:prod
+    restart: unless-stopped
+    ports:
+      - "${WEB_PROD_PORT:-8080}:3000"

@@ -1,0 +1,17 @@
+# Dev mode, merged automatically by `docker compose up`: http://localhost:5173 with server restart and client HMR.
+services:
+  # Separate image tags per mode, so switching modes never runs the other mode's last build.
+  server:
+    image: app-server:dev
+    build:
+      target: dev
+    environment:
+      NODE_ENV: development
+    ports:
+      - "${WEB_DEV_PORT:-5173}:3000"
+    volumes:
+      - ./server/src:/app/server/src:ro
+      - ./server/migrations:/app/server/migrations:ro
+      - ./shared/src:/app/shared/src:ro
+      - ./client/src:/app/client/src:ro
+      - ./client/index.html:/app/client/index.html:ro

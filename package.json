@@ -1,0 +1,38 @@
+{
+  "name": "app",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.4.2",
+  "engines": {
+    "bun": "1.4.2"
+  },
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "NODE_ENV=development DATABASE_PATH=.data/app.db PORT=5173 bun --watch server/src/main.ts",
+    "typecheck":"bun run --filter \"@app/*\" typecheck && bun --bun tsc -p tsconfig.json",
+    "lint": "bun --bun eslint .",
+    "test": "bun run --filter \"@app/*\" test",
+    "test:coverage": "bun run --filter \"@app/*\" test:coverage",
+    "contract:check": "bun scripts/contract.ts check && bun test ./scripts",
+    "contract:update": "bun scripts/contract.ts update",
+    "check:bundle": "bun run --filter @app/client build && bun client/scripts/check-bundle.ts",
+    "smoke:compose": "bun scripts/smoke-compose.ts",
+    "test:e2e": "docker compose -f compose.yaml -f compose.prod.yaml --profile e2e run --rm --build e2e",
+    "test:perf": "bun scripts/perf.ts",
+    "check": "bun run typecheck && bun run lint && bun run test:coverage && bun run contract:check && bun run check:bundle"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/autocannon": "7.12.7",
+    "@types/bun": "1.4.2",
+    "autocannon": "9.0.0",
+    "eslint": "10.15.0",
+    "globals": "17.14.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.73.0"
+  }
+}

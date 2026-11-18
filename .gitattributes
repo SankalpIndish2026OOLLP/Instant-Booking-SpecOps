@@ -1,0 +1,3 @@
+* text=auto eol=lf
+# Migration checksums are computed over raw bytes; keep them identical on every OS.
+*.sql text eol=lf
